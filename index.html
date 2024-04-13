@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav>
+      <img src="peddu3.png" class="college-logo" />
+      <img src="peddu2.png" class="ieee-logo" />
+      <img src="peddu4.png" class="pes-logo" />
+    </nav>
+    //
+    <article class="article-1">
+      <div class="circuit"><p class="circuit-text">jdvljs</p></div>
+      <div>
+        <p class="article-1-text">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum
+        </p>
+      </div>
+    </article>
+    //
+    <div class="body">
+      <div class="section-login">
+        <p class="section-login-text">Login AS</p>
+      </div>
+      <section>
+        <div class="dropdown">
+          <label for="team-size">Team Size:</label>
+          <br />
+          <select name="size" id="size" onchange="addRollNoInputs()">
+            <option value="1">1</option>
+            <option value="2">2</option>
+          </select>
+        </div>
+        <div class="form-roll" id="rollNoInputsContainer">
+          <p class="form-p">Participant 1:</p>
+          <form>
+            <input type="text" id="rollnoInput" placeholder="Roll no" />
+          </form>
+        </div>
+      </section>
+      <button type="submit">Submit</button>
+    </div>
+    <script>
+      function addRollNoInputs() {
+        const teamSizeSelect = document.getElementById("size");
+        const rollNoInputsContainer = document.getElementById(
+          "rollNoInputsContainer"
+        );
+
+        // Clear existing roll no inputs
+        rollNoInputsContainer.innerHTML = "";
+
+        // Add roll no inputs based on selected team size
+        const teamSize = parseInt(teamSizeSelect.value);
+        for (let i = 1; i <= teamSize; i++) {
+          const formGroup = document.createElement("div");
+          formGroup.className = "form-roll";
+          formGroup.innerHTML = `
+            <p class="form-p">Participant ${i}:</p>
+            <form>
+                <input type="text" id="rollnoInput${i}" placeholder="Roll no" />
+            </form>
+        `;
+          rollNoInputsContainer.appendChild(formGroup);
+        }
+      }
+    </script>
+  </body>
+</html>
